@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio - GTI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'SF Pro', sans-serif;
+      background: #f4f0eb;
+      overflow-x: hidden;
+    }
+
+    /* ⬆️ NAV */
+    .top-bar {
+      background: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: fixed;
+      width: 97%;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .btn-nav {
+      padding: 8px 16px;
+      border: 2px solid #FF820C;
+      border-radius: 20px;
+      color: #FF820C;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-nav:hover {
+      background-color: #FF820C;
+      color: white;
+    }
+
+    .logo-img {
+      height: 48px;
+    }
+
+    nav a {
+      margin-left: 30px;
+      font-size: 18px;
+      color: #212121;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #FF820C;
+    }
+
+    /* ⬇️ HERO */
+    .hero {
+      height: 100vh;
+      background: url('../image/hero.jpg') center center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,130,12,0.4), rgba(0,0,0,0.6));
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: white;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      font-size: 24px;
+      opacity: 0.9;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ⬇️ IMAGE SECTIONS */
+    .gallery {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 80px 60px;
+      gap: 30px;
+      background: #fff;
+    }
+
+    .gallery .card {
+      width: 300px;
+      height: 220px;
+      background-color: #EFE7DC;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery .card:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+    }
+
+    .gallery .card-title {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0,0,0,0.4);
+      color: white;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      font-size: 20px;
+    }
+    .card-description {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: white;
+      font-size: 16px;
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card:hover .card-description {
+      opacity: 1;
+    }
+
+
+    /* ⬇️ FOOTER */
+    footer {
+      background-color: #212121;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ✅ NAV -->
+<header class="top-bar">
+  <img src="../image/logo.png" alt="Logo GTI" class="logo-img">
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="privacidad.html">Privacidad</a>
+    <a href="dudas.html">Dudas</a>
+    <a href="login.html" class="btn-nav">Iniciar sesión</a>
+    <a href="registro.html" class="btn-nav">Registrarse</a>
+
+
+  </nav>
+</header>
+
+<!-- ✅ HERO SECTION -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Bienvenido a GTI</h1>
+    <p>Explora tecnologías interactivas de manera innovadora</p>
+  </div>
+
+</section>
+
+<!-- ✅ GALLERY SECTION -->
+<section class="gallery">
+  <div class="card" data-aos="fade-up">
+    <img src="../image/img1.jpg" alt="Imagen 1">
+    <div class="card-title">Sección 1</div>
+    <div class="card-description">Aquí puedes explorar recursos interactivos de última generación.</div>
+  </div>
+
+  <div class="card" data-aos="fade-up" data-aos-delay="100">
+    <img src="../image/img2.jpg" alt="Imagen 2">
+    <div class="card-title">Sección 2</div>
+    <div class="card-description">Aquí puedes explorar recursos interactivos de última generación.</div>
+  </div>
+  <div class="card" data-aos="fade-up" data-aos-delay="200">
+    <img src="../image/img3.jpg" alt="Imagen 3">
+    <div class="card-title">Sección 3</div>
+    <div class="card-description">Aquí puedes explorar recursos interactivos de última generación.</div>
+  </div>
+</section>
+
+<!-- 🌈 FEATURES SECTION -->
+<section style="background: #ffffff; padding: 80px 60px;">
+  <h2 style="text-align:center; font-size: 36px; color: #212121;" data-aos="fade-up">¿Por qué elegirnos?</h2>
+  <div style="display: flex; justify-content: center; gap: 40px; margin-top: 50px; flex-wrap: wrap;">
+    <div data-aos="zoom-in" style="text-align: center; width: 250px;">
+      <i class="fas fa-bolt" style="font-size: 48px; color: #FF820C; transition: transform 0.3s;"></i>
+      <h3>Rápido</h3>
+      <p>Accede a la biblioteca y reserva en segundos.</p>
+    </div>
+    <div data-aos="zoom-in" data-aos-delay="100" style="text-align: center; width: 250px;">
+      <i class="fas fa-lock" style="font-size: 48px; color: #70AB34; transition: transform 0.3s;"></i>
+      <h3>Seguro</h3>
+      <p>Tus datos están siempre protegidos.</p>
+    </div>
+    <div data-aos="zoom-in" data-aos-delay="200" style="text-align: center; width: 250px;">
+      <i class="fas fa-star" style="font-size: 48px; color: #212121; transition: transform 0.3s;"></i>
+      <h3>Valorado</h3>
+      <p>Confiado por cientos de estudiantes y docentes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 🧭 TIMELINE SECTION -->
+<section style="background: #f4f0eb; padding: 80px 60px;">
+  <h2 style="text-align:center; font-size: 36px; color: #212121;" data-aos="fade-up">Cómo funciona</h2>
+  <div style="max-width: 800px; margin: 60px auto; position: relative; border-left: 4px solid #FF820C; padding-left: 30px;">
+    <div data-aos="fade-right" style="margin-bottom: 40px;">
+      <h3>1. Registrarse</h3>
+      <p>Crea una cuenta en pocos segundos.</p>
+    </div>
+    <div data-aos="fade-right" data-aos-delay="100" style="margin-bottom: 40px;">
+      <h3>2. Explorar libros</h3>
+      <p>Navega por nuestro catálogo digital actualizado.</p>
+    </div>
+    <div data-aos="fade-right" data-aos-delay="200">
+      <h3>3. Reservar fácilmente</h3>
+      <p>Haz clic, confirma y recoge tu libro cuando quieras.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 🪄 CTA BUTTON SECTION -->
+<section style="background: linear-gradient(to right, #FF820C, #70AB34); padding: 80px 0; text-align: center;">
+  <h2 style="color:white; font-size: 36px;" data-aos="fade-down">¿Listo para comenzar?</h2>
+  <button style="
+    margin-top: 30px;
+    padding: 20px 50px;
+    font-size: 22px;
+    background: white;
+    border: none;
+    border-radius: 30px;
+    color: #FF820C;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, background 0.4s;
+  " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'"
+          onclick="window.location.href='registro.html'">
+    Empieza ahora →
+  </button>
+</section>
+
+
+<!-- ✅ FOOTER -->
+<footer>
+  © 2025 GTI – Grado en Tecnologías Interactivas
+</footer>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+</body>
+</html>

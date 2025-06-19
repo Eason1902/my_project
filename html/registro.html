@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro - GTI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'SF Pro', sans-serif;
+      background: linear-gradient(to right, #f4f0eb, #efe7dc);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .top-bar {
+      background: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .btn-nav {
+      padding: 8px 16px;
+      border: 2px solid #FF820C;
+      border-radius: 20px;
+      color: #FF820C;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-nav:hover {
+      background-color: #FF820C;
+      color: white;
+    }
+
+    .logo-img {
+      height: 48px;
+    }
+
+    nav a {
+      margin-left: 30px;
+      font-size: 18px;
+      color: #212121;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #FF820C;
+    }
+
+    .registro-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .registro-box {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ccc;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      padding: 50px 60px;
+      width: 700px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .registro-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .registro-header h1 {
+      font-size: 32px;
+      color: #212121;
+    }
+
+    .registro-logo {
+      height: 48px;
+    }
+
+    .divider {
+      width: 2px;
+      height: 40px;
+      background-color: #ccc;
+    }
+
+    .input-group {
+      position: relative;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .input-group i.fa-user,
+    .input-group i.fa-lock {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color: #757575;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #757575;
+    }
+
+    .registro-box input {
+      width: 100%;
+      font-size: 18px;
+      padding: 12px 45px 12px 45px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: box-shadow 0.3s, border-color 0.3s;
+      box-sizing: border-box;
+    }
+
+    .registro-box input:focus {
+      border-color: #FF820C;
+      box-shadow: 0 0 5px rgba(255,130,12,0.4);
+      outline: none;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+      width: 100%;
+    }
+
+    .button-group button {
+      background-color: #FF820C;
+      color: white;
+      font-size: 20px;
+      padding: 12px 32px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 40%;
+    }
+
+    .button-group button:hover {
+      background-color: #e86f00;
+    }
+
+    .error-msg {
+      color: red;
+      font-size: 16px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      color: #757575;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<header class="top-bar">
+  <img src="../logo.png" alt="Logo GTI" class="logo-img">
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="privacidad.html">Privacidad</a>
+    <a href="dudas.html">Dudas</a>
+    <a href="login.html" class="btn-nav">Iniciar sesión</a>
+
+  </nav>
+</header>
+
+<main class="registro-container">
+  <form action="../php/registro.php" method="POST" class="registro-box" onsubmit="return validarFormulario()">
+    <div class="registro-header">
+      <h1>Crear cuenta</h1>
+      <div class="divider"></div>
+      <img src="../image/logo.png" alt="Logo GTI" class="registro-logo">
+    </div>
+
+    <div id="error" class="error-msg"></div>
+
+    <div class="input-group">
+      <i class="fa fa-user"></i>
+      <input type="text" name="usuario" id="usuario" placeholder="Usuario" required>
+    </div>
+
+    <div class="input-group">
+      <i class="fa fa-lock"></i>
+      <input type="password" name="password" id="password" placeholder="Contraseña" required>
+      <i class="fa fa-eye toggle-password" onclick="togglePassword('password')"></i>
+    </div>
+
+    <div class="input-group">
+      <i class="fa fa-lock"></i>
+      <input type="password" id="confirmar" placeholder="Confirmar contraseña" required>
+      <i class="fa fa-eye toggle-password" onclick="togglePassword('confirmar')"></i>
+    </div>
+
+    <div class="button-group">
+      <button type="submit">Registrarse</button>
+      <button type="button" onclick="window.location.href='login.html'">Volver</button>
+    </div>
+  </form>
+</main>
+
+<footer>
+  © 2025 GTI – Grado en Tecnologías Interactivas
+</footer>
+
+<script>
+  function togglePassword(id) {
+    const input = document.getElementById(id);
+    input.type = input.type === "password" ? "text" : "password";
+  }
+
+  function validarFormulario() {
+    const pass = document.getElementById("password").value;
+    const confirm = document.getElementById("confirmar").value;
+    const errorDiv = document.getElementById("error");
+
+    if (pass.length < 6) {
+      errorDiv.textContent = "La contraseña debe tener al menos 6 caracteres.";
+      return false;
+    }
+
+    if (pass !== confirm) {
+      errorDiv.textContent = "Las contraseñas no coinciden.";
+      return false;
+    }
+
+    errorDiv.textContent = "";
+    return true;
+  }
+</script>
+</body>
+</html>
